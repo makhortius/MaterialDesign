@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -39,11 +40,15 @@ class PictureOfTheDayFragment : Fragment() {
         })
         viewModel.sendServerRequest()
 
-        binding.inputLayout.setEndIconOnClickListener {
+        /*binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
                 data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
-        }
+        }*/
+        val feelings = resources.getStringArray(R.array.feelings)
+        val arrayAdapter = ArrayAdapter(requireContext(), R.layout.dropdown_item, feelings)
+        binding.inputEditText.setAdapter(arrayAdapter)
+
     }
 
     private fun renderData(state: PictureOfTheDayState) {

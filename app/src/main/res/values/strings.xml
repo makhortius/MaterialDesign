@@ -9,4 +9,13 @@
     <string name="settings">settings</string>
     <string name="search">Search</string>
 
+
+    <string-array name="feelings">
+        <item>Sad</item>
+        <item>Dissatisfied</item>
+        <item>Satisfied</item>
+        <item>Happy</item>
+        <item>Excited</item>
+    </string-array>
+
 </resources>
