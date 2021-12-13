@@ -1,5 +1,6 @@
 package com.gb.material_1507_1544_3_1.view.picture
 
+import android.content.ContentValues.TAG
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
@@ -7,6 +8,7 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import android.widget.Toast
+import androidx.activity.OnBackPressedCallback
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -60,12 +62,12 @@ class PictureOfTheDayFragment : Fragment() {
             BottomSheetBehavior.BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
                 when (newState) {
-                   /* BottomSheetBehavior.STATE_DRAGGING -> TODO("not implemented")
-                    BottomSheetBehavior.STATE_COLLAPSED -> TODO("not implemented")
-                    BottomSheetBehavior.STATE_EXPANDED -> TODO("not implemented")
-                    BottomSheetBehavior.STATE_HALF_EXPANDED -> TODO("not implemented")
-                    BottomSheetBehavior.STATE_HIDDEN -> TODO("not implemented")
-                    BottomSheetBehavior.STATE_SETTLING -> TODO("not implemented")*/
+                    /* BottomSheetBehavior.STATE_DRAGGING -> TODO("not implemented")
+                     BottomSheetBehavior.STATE_COLLAPSED -> TODO("not implemented")
+                     BottomSheetBehavior.STATE_EXPANDED -> TODO("not implemented")
+                     BottomSheetBehavior.STATE_HALF_EXPANDED -> TODO("not implemented")
+                     BottomSheetBehavior.STATE_HIDDEN -> TODO("not implemented")
+                     BottomSheetBehavior.STATE_SETTLING -> TODO("not implemented")*/
                 }
             }
 
@@ -122,9 +124,15 @@ class PictureOfTheDayFragment : Fragment() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.app_bar_fav -> Toast.makeText(context, "Favourite", Toast.LENGTH_SHORT).show()
-            R.id.app_bar_settings -> requireActivity().supportFragmentManager.beginTransaction().replace(R.id.container,
-            ChipsFragment.newInstance()).commit()
-            android.R.id.home ->BottomNavigationDrawerFragment().show(requireActivity().supportFragmentManager,"")
+            R.id.app_bar_settings -> requireActivity().supportFragmentManager.beginTransaction()
+                .replace(
+                    R.id.container,
+                    ChipsFragment.newInstance()
+                ).commit()
+            android.R.id.home -> BottomNavigationDrawerFragment().show(
+                requireActivity().supportFragmentManager,
+                ""
+            )
         }
         return super.onOptionsItemSelected(item)
     }
@@ -137,25 +145,61 @@ class PictureOfTheDayFragment : Fragment() {
 
 
         binding.fab.setOnClickListener {
-            if(isMain){
+            if (isMain) {
                 isMain = false
-                binding.bottomAppBar.navigationIcon =null
+                binding.bottomAppBar.navigationIcon = null
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_END
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_back_fab))
+                binding.fab.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.ic_back_fab
+                    )
+                )
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar_other_screen)
-            }else{
+            } else {
                 isMain = true
-                binding.bottomAppBar.navigationIcon =ContextCompat.getDrawable(context,R.drawable.ic_hamburger_menu_bottom_bar)
+                binding.bottomAppBar.navigationIcon =
+                    ContextCompat.getDrawable(context, R.drawable.ic_hamburger_menu_bottom_bar)
                 binding.bottomAppBar.fabAlignmentMode = BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
-                binding.fab.setImageDrawable(ContextCompat.getDrawable(context,R.drawable.ic_plus_fab))
+                binding.fab.setImageDrawable(
+                    ContextCompat.getDrawable(
+                        context,
+                        R.drawable.ic_plus_fab
+                    )
+                )
                 binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
             }
         }
-        // TODO (кнопка назад)
 
-
+        requireActivity()
+            .onBackPressedDispatcher
+            .addCallback(viewLifecycleOwner, object : OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    Log.d(TAG, "Fragment back pressed invoked")
+                    if (isMain) {
+                        System.exit(0)
+                    } else {
+                        isMain = true
+                        binding.bottomAppBar.navigationIcon = ContextCompat.getDrawable(
+                            context,
+                            R.drawable.ic_hamburger_menu_bottom_bar
+                        )
+                        binding.bottomAppBar.fabAlignmentMode =
+                            BottomAppBar.FAB_ALIGNMENT_MODE_CENTER
+                        binding.fab.setImageDrawable(
+                            ContextCompat.getDrawable(
+                                context,
+                                R.drawable.ic_plus_fab
+                            )
+                        )
+                        binding.bottomAppBar.replaceMenu(R.menu.menu_bottom_bar)
+                    }
+                }
+            }
+            )
 
 
     }
+
 
 }
