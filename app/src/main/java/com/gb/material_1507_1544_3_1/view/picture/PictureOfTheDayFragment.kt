@@ -3,6 +3,7 @@ package com.gb.material_1507_1544_3_1.view.picture
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.gb.material_1507_1544_3_1.viewmodel.PictureOfTheDayState
 import com.gb.material_1507_1544_3_1.viewmodel.PictureOfTheDayViewModel
 import com.gb.material_1507_1555_3_1.R
 import com.gb.material_1507_1555_3_1.databinding.FragmentMainBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
 
 class PictureOfTheDayFragment : Fragment() {
 
@@ -41,9 +43,35 @@ class PictureOfTheDayFragment : Fragment() {
 
         binding.inputLayout.setEndIconOnClickListener {
             startActivity(Intent(Intent.ACTION_VIEW).apply {
-                data = Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
+                data =
+                    Uri.parse("https://en.wikipedia.org/wiki/${binding.inputEditText.text.toString()}")
             })
         }
+
+        val behavior = BottomSheetBehavior.from(binding.includeBottomSheet.bottomSheetContainer)
+        behavior.state = BottomSheetBehavior.STATE_HALF_EXPANDED
+
+
+        behavior.addBottomSheetCallback(object :
+            BottomSheetBehavior.BottomSheetCallback() {
+            override fun onStateChanged(bottomSheet: View, newState: Int) {
+                when (newState) {
+                   /* BottomSheetBehavior.STATE_DRAGGING -> TODO("not implemented")
+                    BottomSheetBehavior.STATE_COLLAPSED -> TODO("not implemented")
+                    BottomSheetBehavior.STATE_EXPANDED -> TODO("not implemented")
+                    BottomSheetBehavior.STATE_HALF_EXPANDED -> TODO("not implemented")
+                    BottomSheetBehavior.STATE_HIDDEN -> TODO("not implemented")
+                    BottomSheetBehavior.STATE_SETTLING -> TODO("not implemented")*/
+                }
+            }
+
+            override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                Log.d("mylogs", "$slideOffset slideOffset")
+
+                //TODO("not implemented")
+            }
+        })
+
     }
 
     private fun renderData(state: PictureOfTheDayState) {
