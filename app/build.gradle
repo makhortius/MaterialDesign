@@ -13,6 +13,9 @@ android {
         it.buildConfigField "String", "NASA_API_KEY", nasaApiKey
     }
 
+    buildFeatures {
+        viewBinding true
+    }
 
     defaultConfig {
         applicationId "com.gb.material_1507_1544_3_1"
