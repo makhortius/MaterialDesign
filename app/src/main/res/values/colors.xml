@@ -20,5 +20,6 @@
 
 
     <color name="color_connected">#B200FF</color>
+    <color name="color_disconnected">#FF0000</color>
 
 </resources>

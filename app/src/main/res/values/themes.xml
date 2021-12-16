@@ -15,10 +15,21 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+
+    </style>
+
+
+    <style name="ThemeConnected" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="textColorConnected">@color/color_connected</item>
     </style>
 
+    <style name="ThemeDisConnected" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="textColorConnected">@color/color_disconnected</item>
+    </style>
+
+
     <style name="CustomStyle">
+
         <item name="android:textColor">#01F71A</item>
     </style>
 

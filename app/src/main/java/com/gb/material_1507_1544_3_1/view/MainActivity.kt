@@ -7,13 +7,25 @@ import com.gb.material_1507_1555_3_1.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+
         super.onCreate(savedInstanceState)
         // TODO FULL SCREEN
-        setContentView(R.layout.activity_main)
-        if(savedInstanceState==null){
-            supportFragmentManager.beginTransaction().replace(R.id.container,PictureOfTheDayFragment.newInstance()).commit()
+        if (isConnecton()) {
+            setTheme(R.style.ThemeConnected)
+        }else{
+            setTheme(R.style.ThemeDisConnected)
         }
+        // если во время исполнения то не забываем выполнить recreate()
+        setContentView(R.layout.activity_main)
+        if (savedInstanceState == null) {
+            supportFragmentManager.beginTransaction()
+                .replace(R.id.container, PictureOfTheDayFragment.newInstance()).commit()
+        }
+        //recreate()
+    }
 
+    private fun isConnecton(): Boolean {
+        return true
     }
 
 }
