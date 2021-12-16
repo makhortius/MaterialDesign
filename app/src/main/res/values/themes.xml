@@ -15,22 +15,42 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
 
+        <item name="textAppearanceButton">@style/CustomStyle</item>
+
+        <item name="shapeAppearanceSmallComponent">@style/AppShapeAppearance.SmallComponent</item>
+        <item name="shapeAppearanceMediumComponent">@style/AppShapeAppearance.MediumComponent</item>
+        <item name="shapeAppearanceLargeComponent">@style/AppShapeAppearance.MediumComponent</item>
+
+
+        <item name="materialButtonStyle">@style/MyButtonStyle</item>
+        <item name="materialButtonOutlinedStyle">@style/MyButtonStyle</item>
 
     </style>
 
 
-    <style name="ThemeConnected" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="textColorConnected">@color/color_connected</item>
+    <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/purple_700</item>
     </style>
 
-    <style name="ThemeDisConnected" parent="Theme.MaterialComponents.DayNight.NoActionBar">
-        <item name="textColorConnected">@color/color_disconnected</item>
+    <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">8dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">80dp</item>
     </style>
 
 
-    <style name="CustomStyle">
 
-        <item name="android:textColor">#01F71A</item>
+    <style name="CustomStyle" parent="TextAppearance.AppCompat.Button">
+        <item name="android:textAllCaps">true</item>
     </style>
 
 

@@ -6,19 +6,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.lifecycle.ViewModelProvider
-import com.gb.material_1507_1544_3_1.viewmodel.PictureOfTheDayViewModel
-import com.gb.material_1507_1555_3_1.R
-import com.gb.material_1507_1555_3_1.databinding.FragmentChipsBinding
-import com.gb.material_1507_1555_3_1.databinding.FragmentMainBinding
+import com.gb.material_1507_1555_3_1.databinding.FragmentSettingsBinding
 import com.google.android.material.chip.Chip
 
 
-class ChipsFragment : Fragment() {
+class SettingsFragment : Fragment() {
 
 
-    private var _binding: FragmentChipsBinding? = null
-    val binding: FragmentChipsBinding
+    private var _binding: FragmentSettingsBinding? = null
+    val binding: FragmentSettingsBinding
         get() {
             return _binding!!
         }
@@ -33,7 +29,7 @@ class ChipsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        _binding = FragmentChipsBinding.inflate(inflater, container, false)
+        _binding = FragmentSettingsBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -50,11 +46,13 @@ class ChipsFragment : Fragment() {
             //binding.chipForDelete.visibility = View.GONE
             binding.chipForDelete.isChecked = false
         }
+
+        binding.tabs.getTabAt(0)!!.text = "Работает"
     }
 
     companion object {
         @JvmStatic
         fun newInstance() =
-            ChipsFragment()
+            SettingsFragment()
     }
 }

@@ -1,7 +1,6 @@
 package com.gb.material_1507_1544_3_1.view.picture
 
 import android.content.ContentValues.TAG
-import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
@@ -15,7 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import coil.load
 import com.gb.material_1507_1544_3_1.view.MainActivity
-import com.gb.material_1507_1544_3_1.view.chips.ChipsFragment
+import com.gb.material_1507_1544_3_1.view.chips.SettingsFragment
 import com.gb.material_1507_1544_3_1.viewmodel.PictureOfTheDayState
 import com.gb.material_1507_1544_3_1.viewmodel.PictureOfTheDayViewModel
 import com.gb.material_1507_1555_3_1.R
@@ -127,7 +126,7 @@ class PictureOfTheDayFragment : Fragment() {
             R.id.app_bar_settings -> requireActivity().supportFragmentManager.beginTransaction()
                 .replace(
                     R.id.container,
-                    ChipsFragment.newInstance()
+                    SettingsFragment.newInstance()
                 ).commit()
             android.R.id.home -> BottomNavigationDrawerFragment().show(
                 requireActivity().supportFragmentManager,
