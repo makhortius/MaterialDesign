@@ -3,8 +3,6 @@
     <style name="Theme.Material_1507_1555_3_1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
 
-
-
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -18,7 +16,9 @@
         <!-- Customize your theme here. -->
     </style>
 
-    <style name="CustomStyle" parent="Widget.MaterialComponents.Chip.Entry">
-        <item name="chipIconVisible">false</item>
+    <style name="CustomStyle">
+        <item name="android:textColor">#01F71A</item>
     </style>
+
+
 </resources>
