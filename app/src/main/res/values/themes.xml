@@ -2,7 +2,9 @@
     <!-- Base application theme. -->
     <style name="Theme.Material_1507_1555_3_1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
 
-
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -55,8 +57,11 @@
 
 
 
-    <style name="CustomStyle" parent="TextAppearance.AppCompat.Button">
+    <style name="CustomStyle" parent="TextAppearance.MaterialComponents.Button">
         <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">23sp</item>
+        <item name="fontFamily">@font/aguafina_script</item>
+        <item name="android:textColor">@color/purple_200</item>
     </style>
 
 

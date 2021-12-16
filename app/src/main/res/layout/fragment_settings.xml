@@ -219,24 +219,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="vertical">
 
             <com.google.android.material.button.MaterialButton
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Верхний уровень" />
+                android:textColor="@null"
+                android:text="TOP" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="wrap_content"
+                android:textColor="@null"
                 android:layout_height="wrap_content"
-                android:text="Средний уровень" />
+                android:text="MIDDLE" />
 
             <com.google.android.material.button.MaterialButton
                 style="@style/Widget.MaterialComponents.Button.TextButton"
                 android:layout_width="wrap_content"
+                android:textColor="@null"
                 android:layout_height="wrap_content"
-                android:text="Нижний уровень" />
+                android:text="LOWER" />
         </LinearLayout>
 
         <LinearLayout
