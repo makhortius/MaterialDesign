@@ -23,10 +23,16 @@
 
 
         <item name="materialButtonStyle">@style/MyButtonStyle</item>
-        <item name="materialButtonOutlinedStyle">@style/MyButtonStyle</item>
+        <item name="materialCardViewStyle">@style/MyCardViewStyle</item>
 
     </style>
 
+
+    <style name="MyCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/purple_700</item>
+        <item name="cardCornerRadius">100dp</item>
+        <item name="android:textAppearance">@style/CustomStyle</item>
+    </style>
 
     <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
         <item name="backgroundTint">@color/purple_700</item>
@@ -38,8 +44,8 @@
     </style>
 
     <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
-        <item name="cornerFamily">cut</item>
-        <item name="cornerSize">8dp</item>
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
     </style>
 
     <style name="AppShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
