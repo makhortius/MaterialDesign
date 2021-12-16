@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import com.gb.material_1507_1555_3_1.R
 import com.gb.material_1507_1555_3_1.databinding.FragmentSettingsBinding
 import com.google.android.material.chip.Chip
 
@@ -36,8 +37,8 @@ class SettingsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding.chipGroup.setOnCheckedChangeListener { group, checkedId ->
-            group.findViewById<Chip>(checkedId)?.let{
-                Toast.makeText(context,"choose ${it.text}",Toast.LENGTH_SHORT).show()
+            group.findViewById<Chip>(checkedId)?.let {
+                Toast.makeText(context, "choose ${it.text}", Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -48,6 +49,20 @@ class SettingsFragment : Fragment() {
         }
 
         binding.tabs.getTabAt(0)!!.text = "Работает"
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            when (it.itemId) {
+                R.id.navigation_one -> {
+                    Toast.makeText(context,"1",Toast.LENGTH_SHORT).show()
+                }
+                R.id.navigation_two -> {
+                    Toast.makeText(context,"2",Toast.LENGTH_SHORT).show()
+                }
+                R.id.navigation_third -> {
+                    Toast.makeText(context,"3",Toast.LENGTH_SHORT).show()
+                }
+            }
+            true
+        }
     }
 
     companion object {
