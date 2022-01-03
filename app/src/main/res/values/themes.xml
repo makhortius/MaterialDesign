@@ -1,6 +1,10 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.Material_1507_1555_3_1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+    <style name="Theme.Material_1507_1544_3_1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/purple_500</item>
         <item name="colorPrimaryVariant">@color/purple_700</item>
@@ -12,5 +16,58 @@
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <!-- Customize your theme here. -->
+
+        <item name="textAppearanceButton">@style/CustomStyle</item>
+
+
+
+
+        <item name="materialButtonStyle">@style/MyButtonStyle</item>
+        <item name="materialCardViewStyle">@style/MyCardViewStyle</item>
+
     </style>
+
+
+    <style name="BottomNavigationView" parent="Widget.Design.BottomNavigationView">
+        <item name="labelVisibilityMode">labeled</item>
+        <item name="colorSurface">@color/colorAccent</item>
+        <item name="colorOnSurface">@color/white</item>
+        <item name="colorPrimarySurface">@color/color_gray</item>
+        <item name="colorOnPrimarySurface">@color/color_connected</item>
+    </style>
+
+    <style name="MyCardViewStyle" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/purple_700</item>
+        <item name="cardCornerRadius">100dp</item>
+        <item name="android:textAppearance">@style/CustomStyle</item>
+    </style>
+
+    <style name="MyButtonStyle" parent="Widget.MaterialComponents.Button">
+        <item name="backgroundTint">@color/purple_700</item>
+    </style>
+
+    <style name="AppShapeAppearance.SmallComponent" parent="ShapeAppearance.MaterialComponents.SmallComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">4dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.MediumComponent" parent="ShapeAppearance.MaterialComponents.MediumComponent">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">20dp</item>
+    </style>
+
+    <style name="AppShapeAppearance.LargeComponent" parent="ShapeAppearance.MaterialComponents.LargeComponent">
+        <item name="cornerFamily">cut</item>
+        <item name="cornerSize">80dp</item>
+    </style>
+
+
+
+    <style name="CustomStyle" parent="TextAppearance.MaterialComponents.Button">
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">23sp</item>
+        <item name="android:textColor">@color/purple_200</item>
+    </style>
+
+
 </resources>
